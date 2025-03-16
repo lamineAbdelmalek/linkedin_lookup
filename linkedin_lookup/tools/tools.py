@@ -1,3 +1,4 @@
+import json
 import os
 
 import requests
@@ -19,7 +20,7 @@ def get_profile_url_tavily(name: str):
     """
     search = TavilySearchResults()
     res = search.run(f"{name}")
-    return res
+    return json.dumps(res, indent=4)
 
 
 @tool(parse_docstring=True)
